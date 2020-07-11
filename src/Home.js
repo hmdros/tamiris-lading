@@ -73,7 +73,7 @@ function Home() {
   };
 
   useEffect(() => {
-      if (name, email, birthDate, category) {
+      if (name, email, category) {
         if (validEmailRegex.test(email)) {
           setBlockDownload(false);
         }
