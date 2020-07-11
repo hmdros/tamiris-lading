@@ -9,8 +9,6 @@ import {
   GridListTile,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import PdfFile from './assets/07_dicas_de_cuidados_Dra_Tamiris.pdf';
-import fileDownload  from 'js-file-download';
 import { db } from './services/firebase';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,11 +21,6 @@ const useStyles = makeStyles((theme) => ({
     boxSizing: 'border-box',
     minHeight: '98vh',
   },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
   image: {
     marginTop: '10%',
     marginLeft: '10%',
@@ -36,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
   formWrapper: {
     margin: '25px',
     minWidth: '350px'
+  },
+  linkClass: {
+    color: '#ACD7EC',
+    textDecoration: 'none',
   }
 }));
 
@@ -50,7 +47,6 @@ function Home() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    fileDownload(PdfFile, '07_dicas_de_cuidados_Dra_Tamiris.pdf')
     await db.collection("lead").add({
       name: name,
       email: email,
@@ -58,6 +54,7 @@ function Home() {
       category: category
     }).then((docRef) => {
       console.log('Created doc', docRef.id)
+      window.location.replace("https://drive.google.com/file/d/18h-N656DyZdIxLTEfnwPSdLQ8p4u7ICq/view?usp=sharing")
       setName('')
       setEmail('')
       setBirthDate('2020-01-01')
@@ -156,8 +153,8 @@ function Home() {
               </Button>
               </GridListTile>
             </form>
-            <h3>Visite meu <a href="http://dratamirisbaptista.com.br/">site</a></h3>
-            <h3>Visite meu <a href="https://www.youtube.com/channel/UCyMJbM8b40vj5fRtDQ4erVg">YouTube</a></h3>
+            <h3 className="linkClass">Visite meu <a href="http://dratamirisbaptista.com.br/">site</a></h3>
+            <h3 className="linkClass">Inscreva-se no meu canal do <a href="https://www.youtube.com/channel/UCyMJbM8b40vj5fRtDQ4erVg">YouTube</a></h3>
           </Grid>
         </Grid>
       </Grid>
