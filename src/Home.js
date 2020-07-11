@@ -50,7 +50,7 @@ function Home() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    fileDownload(PdfFile, '07_dicas_de_cuidados_Dra_Tamiris.pdf')
+    // fileDownload(PdfFile, '07_dicas_de_cuidados_Dra_Tamiris.pdf')
     await db.collection("lead").add({
       name: name,
       email: email,
@@ -73,7 +73,7 @@ function Home() {
   };
 
   useEffect(() => {
-      if (name, email, category) {
+      if ((name, email, birthDate, category)) {
         if (validEmailRegex.test(email)) {
           setBlockDownload(false);
         }
