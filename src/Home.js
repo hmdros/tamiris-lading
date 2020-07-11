@@ -54,7 +54,7 @@ function Home() {
       category: category
     }).then((docRef) => {
       console.log('Created doc', docRef.id)
-      window.location.replace("https://drive.google.com/file/d/18h-N656DyZdIxLTEfnwPSdLQ8p4u7ICq/view?usp=sharing")
+      window.location.replace("https://drive.google.com/file/d/1WoUpOOgGKTDG8fEg5oznAADyTxWCAQgw/view?usp=sharing")
       setName('')
       setEmail('')
       setBirthDate('2020-01-01')
